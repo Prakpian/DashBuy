@@ -1,0 +1,38 @@
+import React from "react";
+import { RiAccountCircle2Line, RiShoppingCartLine } from "react-icons/ri";
+
+function Navbar() {
+  return (
+    <nav className="flex flex-col h-15 w-full items-center">
+      <section className="flex justify-between max-w-[1200px] w-full py-3">
+        <p className="font-bold text-2xl">DashBuy</p>
+        <div className="flex gap-5 items-center">
+          <div className="flex gap-1 hover:bg-neutral-100 p-2 rounded-full">
+            <RiAccountCircle2Line size={"25"} />
+            <p className="font-medium">Account</p>
+          </div>
+          <div className="flex hover:bg-neutral-100 p-2 rounded-full">
+            <RiShoppingCartLine size={"25"} />
+            <p class="rounded-full bg-red-600 min-w-4 max-h-4 p-[1px] w-fit text-white text-center text-[10px] font-bold">
+              1
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="w-full flex gap-4 place-content-center bg-neutral-100 py-2">
+        <p className="hover:underline underline-offset-3 decoration-2">All</p>
+        <p className="hover:underline underline-offset-3 decoration-2">
+          Clothes
+        </p>
+        <p className="hover:underline underline-offset-3 decoration-2">
+          Accessories
+        </p>
+        <p className="hover:underline underline-offset-3 decoration-2">
+          Electronics
+        </p>
+      </section>
+    </nav>
+  );
+}
+
+export default Navbar;
