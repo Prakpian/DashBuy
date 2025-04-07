@@ -3,9 +3,9 @@ import { RiAccountCircle2Line, RiShoppingCartLine } from "react-icons/ri";
 
 function Navbar() {
   return (
-    <nav className="flex flex-col w-full items-center">
+    <nav className="flex flex-col w-full items-center sticky top-0 bg-white">
       <section className="flex justify-between max-w-[1200px] w-full p-3">
-        <p className="font-bold text-2xl">DashBuy</p>
+        <p className="font-bold text-2xl bg-red-600 text-white p-2">DashBuy</p>
         <div className="flex gap-5 items-center">
           <div className="flex gap-1 hover:bg-neutral-100 p-2 rounded-full">
             <RiAccountCircle2Line size={"25"} />
@@ -13,7 +13,7 @@ function Navbar() {
           </div>
           <div className="flex hover:bg-neutral-100 p-2 rounded-full">
             <RiShoppingCartLine size={"25"} />
-            <p class="rounded-full bg-red-600 min-w-4 max-h-4 p-[1px] w-fit text-white text-center text-[10px] font-bold">
+            <p className="rounded-full bg-red-600 min-w-4 max-h-4 p-[1px] w-fit text-white text-center text-[10px] font-bold">
               1
             </p>
           </div>
