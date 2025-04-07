@@ -2,6 +2,7 @@ import React from "react";
 import ShippingInfo from "./ShippingInfo";
 import Button from "./Button";
 import Card from "./Card";
+import Footer from "./Footer";
 
 function HomePage() {
   return (
@@ -74,7 +75,20 @@ function HomePage() {
             </div>
             <Button btnText={"View more"} />
           </section>
+          <section className="grid gap-10 place-items-center">
+            <h1 className="text-2xl font-medium">Find Your Nearest Store</h1>
+            <form action="#">
+              <input
+                type="text"
+                placeholder="Town or postcode"
+                name="location"
+                className="p-2 border mr-2"
+              />
+              <Button btnText={"Find"} />
+            </form>
+          </section>
         </div>
+        <Footer />
       </div>
     </div>
   );
