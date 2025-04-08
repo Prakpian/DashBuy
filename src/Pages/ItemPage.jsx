@@ -117,7 +117,6 @@ function ItemPage() {
           </div>
         </section>
       </div>
-      <Footer />
     </div>
   );
 }

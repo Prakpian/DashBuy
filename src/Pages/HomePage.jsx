@@ -88,7 +88,6 @@ function HomePage() {
             </form>
           </section>
         </div>
-        <Footer />
       </div>
     </div>
   );
