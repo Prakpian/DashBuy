@@ -1,8 +1,8 @@
 import React from "react";
-import ShippingInfo from "./ShippingInfo";
-import Button from "./Button";
-import Card from "./Card";
-import Footer from "./Footer";
+import ShippingInfo from "../components/ShippingInfo";
+import Button from "../components/Button";
+import Card from "../components/Card";
+import Footer from "../components/Footer";
 
 function HomePage() {
   return (
