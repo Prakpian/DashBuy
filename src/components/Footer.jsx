@@ -5,7 +5,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 function Footer() {
   return (
-    <section className="grid place-items-center gap-10 mb-20">
+    <section className="grid place-items-center gap-10 mb-20 mt-30">
       <div className="grid gap-3 p-5 bg-neutral-200 w-full">
         <h1 className="text-xl font-medium text-center">Follow us</h1>
         <div className="flex gap-5 place-content-center">
