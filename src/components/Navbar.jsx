@@ -1,12 +1,13 @@
 import React from "react";
 import { RiAccountCircle2Line, RiShoppingCartLine } from "react-icons/ri";
+import Logo from "./Logo";
 
 function Navbar() {
   return (
     <nav className="flex flex-col w-full items-center sticky top-0 z-1 bg-white">
       <section className="flex justify-between max-w-[1200px] w-full p-3">
-        <p className="font-bold text-2xl bg-red-600 text-white p-2">DashBuy</p>
-        <div className="flex gap-5 items-center">
+        <Logo />
+        <div className="flex ggap-2 sm:gap-5 items-center">
           <div className="flex gap-1 hover:bg-neutral-100 p-2 rounded-full">
             <RiAccountCircle2Line size={"25"} />
             <p className="font-medium">Account</p>
@@ -19,7 +20,7 @@ function Navbar() {
           </div>
         </div>
       </section>
-      <section className="w-full flex gap-4 place-content-center py-2 border-y">
+      <section className="w-full flex gap-2 sm:gap-4 place-content-center py-2 border-y">
         <p className="hover:underline underline-offset-4 decoration-2 font-medium">
           Shop
         </p>
