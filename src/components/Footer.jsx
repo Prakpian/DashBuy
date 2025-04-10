@@ -15,7 +15,7 @@ function Footer() {
           <AiFillTikTok size={30} className="hover:cursor-pointer" />
         </div>
       </div>
-      <div className="flex gap-5 px-2">
+      <div className="flex flex-col sm:flex-row gap-5 px-2">
         <div>
           <h3 className="font-medium text-xl mb-2">Help infomation</h3>
           <ul className="grid gap-2">
