@@ -97,5 +97,6 @@ export const useProductFilters = (initialData = []) => {
     handleFilterChange,
     filters,
     noItemsFound,
+    setFilters,
   };
 };
