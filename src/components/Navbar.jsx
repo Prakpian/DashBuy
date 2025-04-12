@@ -2,8 +2,14 @@ import React from "react";
 import { RiAccountCircle2Line, RiShoppingCartLine } from "react-icons/ri";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import { useCart } from "../contexts/CartContext";
 
-function Navbar({ cartCount }) {
+function Navbar() {
+  const { cart } = useCart();
+  let total = 0;
+  for (const item of cart) {
+    total += item.quantity;
+  }
   return (
     <nav className="flex flex-col w-full items-center sticky top-0 z-10 bg-white">
       <section className="flex justify-between max-w-[1200px] w-full p-3">
@@ -15,14 +21,11 @@ function Navbar({ cartCount }) {
             <RiAccountCircle2Line size={"25"} />
             <p className="font-medium">Account</p>
           </div>
-          <Link
-            to={"/cart"}
-            aria-label={`Shopping Cart with ${cartCount} items`}
-          >
+          <Link to={"/cart"} aria-label={`Shopping Cart with ${total} items`}>
             <div className="flex hover:bg-neutral-100 p-2 rounded-full">
               <RiShoppingCartLine size={"25"} />
               <p className="rounded-full bg-red-600 min-w-4 max-h-4 p-[1px] w-fit text-white text-center text-[10px] font-bold">
-                {cartCount}
+                {total}
               </p>
             </div>
           </Link>
