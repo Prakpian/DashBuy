@@ -38,7 +38,7 @@ function HomePage() {
                   <Button btnText={"Shop"} />
                 </div>
               </Link>
-              <Link to={"/shop?category=jewelry"}>
+              <Link to={"/shop?category=jewelery"}>
                 <div
                   className="bg-[url('https://plus.unsplash.com/premium_photo-1681276169450-4504a2442173?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]
          bg-cover bg-center h-[300px] w-[300px] sm:h-[400px] sm:w-[400px] place-content-end pl-5 pb-5 hover:brightness-95"
