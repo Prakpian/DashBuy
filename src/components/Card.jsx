@@ -44,7 +44,7 @@ function Card({ itemDetails }) {
               itemDetails.category.slice(1)}
           </h2>
         </div>
-        <p className="my-2">£{itemDetails.price}</p>
+        <p className="my-2">£{itemDetails.price.toFixed(2)}</p>
       </div>
       <Button
         btnText={"Add to cart"}

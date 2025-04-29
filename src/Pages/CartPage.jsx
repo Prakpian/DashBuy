@@ -28,8 +28,10 @@ function CartPage() {
           cart.map((item) => <CartItems itemDetails={item} key={item.id} />)
         )}
       </div>
-      <div className="flex flex-col gap-3 p-4 border-2 h-fit">
-        <h2 className="text-xl font-medium">Total (1): £{totalPrice}</h2>
+      <div className="flex flex-col gap-3 p-4 border-2 h-fit md:max-w-[200px] md:w-full">
+        <h2 className="text-xl font-medium">
+          Total ({cart.length}): £{totalPrice.toFixed(2)}
+        </h2>
         <Button btnText={"Checkout"} />
       </div>
     </div>
