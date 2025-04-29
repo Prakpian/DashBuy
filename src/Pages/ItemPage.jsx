@@ -1,17 +1,38 @@
 import React, { useState } from "react";
-import { useLocation, useOutletContext } from "react-router-dom";
+import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import {
   MdOutlineKeyboardArrowDown,
   MdOutlineKeyboardArrowUp,
 } from "react-icons/md";
+import { useCart } from "../contexts/CartContext";
+import { useProductFilters } from "../hooks/useFilterProducts";
 
 function ItemPage() {
   const { state } = useLocation();
   const product = state?.product;
-  const [quantity, setQuantity] = useState(1);
+  const [itemQuantity, setItemQuantity] = useState(1);
   const [deliveryMenu, setDeliveryMenu] = useState(false);
   const [returnMenu, setReturnMenu] = useState(false);
+  const { setCart } = useCart();
+  const { data } = useOutletContext();
+  const { displayData } = useProductFilters(data);
+  const { id } = useParams();
+
+  const handleAddCartClick = () => {
+    const itemData = displayData.find((item) => item.id === Number(id));
+
+    setCart((items) => {
+      if (items.find((item) => item.id === itemData.id)) {
+        return items.map((item) =>
+          item.id === itemData.id
+            ? { ...item, quantity: item.quantity + itemQuantity }
+            : item
+        );
+      }
+      return [...items, { ...itemData, quantity: itemQuantity }];
+    });
+  };
 
   if (!product) {
     return <div>Product not found</div>;
@@ -38,26 +59,26 @@ function ItemPage() {
                   variant="line"
                   btnClick={() =>
                     quantity !== 1 &&
-                    setQuantity((prevQuantity) => prevQuantity - 1)
+                    setItemQuantity((prevQuantity) => prevQuantity - 1)
                   }
                 />
-                <p className="py-2 px-4 border-2 font-bold">{quantity}</p>
+                <p className="py-2 px-4 border-2 font-bold">{itemQuantity}</p>
                 <Button
                   btnText={"+"}
                   variant="line"
                   btnClick={() =>
-                    setQuantity((prevQuantity) => prevQuantity + 1)
+                    setItemQuantity((prevQuantity) => prevQuantity + 1)
                   }
                 />
               </div>
-              <Button btnText={"ADD TO CART"} />
+              <Button btnText={"ADD TO CART"} btnClick={handleAddCartClick} />
             </div>
           </div>
         </div>
         <section className="grid gap-5 my-10">
-          <div className="grid gap-2 cursor-pointer">
+          <div className="grid gap-2">
             <div
-              className="bg-neutral-100 px-4 py-2 flex justify-between items-center"
+              className="bg-neutral-100 px-4 py-2 flex justify-between items-center cursor-pointer"
               onClick={() => setDeliveryMenu(!deliveryMenu)}
             >
               <p className="font-medium">Delivery</p>
@@ -91,9 +112,9 @@ function ItemPage() {
               </div>
             )}
           </div>
-          <div className="grid gap-2 cursor-pointer">
+          <div className="grid gap-2">
             <div
-              className="bg-neutral-100 px-4 py-2 flex justify-between items-center"
+              className="bg-neutral-100 px-4 py-2 flex justify-between items-center cursor-pointer"
               onClick={() => setReturnMenu(!returnMenu)}
             >
               <p className="font-medium">Return</p>
