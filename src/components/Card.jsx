@@ -28,7 +28,7 @@ function Card({ itemDetails }) {
 
   return (
     <div
-      className="flex flex-col gap-2 w-[150px] sm:w-[180px] flex-none"
+      className="flex flex-col gap-2 w-[150px] sm:w-[180px] flex-none cursor-pointer"
       key={itemDetails.id}
     >
       <div onClick={handleCardClick}>
