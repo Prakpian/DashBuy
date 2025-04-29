@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../components/Button";
 import { useCart } from "../contexts/CartContext";
+import { FaTrash } from "react-icons/fa";
 
 function CartItems({ itemDetails }) {
   const { setCart } = useCart();
@@ -28,8 +29,15 @@ function CartItems({ itemDetails }) {
       );
     });
   };
+
+  const handleRemoveItem = () => {
+    setCart((prevCart) =>
+      prevCart.filter((item) => item.id !== itemDetails.id)
+    );
+  };
+
   return (
-    <div className="flex flex-col md:flex-row gap-10 sm:gap-20 mt-10 w-full gap-2">
+    <div className="flex flex-col lg:flex-row gap-10 sm:gap-20 mt-10 w-full gap-2">
       <img
         src={itemDetails.image}
         alt={itemDetails.title}
@@ -46,7 +54,7 @@ function CartItems({ itemDetails }) {
                 itemDetails.category.slice(1)}
             </h2>
           </div>
-          <div>
+          <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-stretch">
             <div className="flex gap-1">
               <Button
                 btnText={"-"}
@@ -62,10 +70,15 @@ function CartItems({ itemDetails }) {
                 btnClick={handleAddQuantity}
               />
             </div>
+            <Button
+              btnText={<FaTrash />}
+              variant="primary"
+              btnClick={handleRemoveItem}
+            />
           </div>
         </div>
         <p className="font-medium">
-          £{itemDetails.price * itemDetails.quantity}
+          £{(itemDetails.price * itemDetails.quantity).toFixed(2)}
         </p>
       </div>
     </div>
